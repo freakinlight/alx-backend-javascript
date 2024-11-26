@@ -1,18 +1,17 @@
-// Include the process standard input
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
+// Directly write to stdout for the initial prompt.
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-console.log("Welcome to Holberton School, what is your name?");
-
+// Listen for data events on stdin, which are triggered when the user inputs data.
 process.stdin.on('data', (data) => {
-    // Trim the data to remove any newline characters added during the input
-    const name = data.trim();
-    console.log(`Your name is: ${name}`);
-    // Exit the process after outputting the name
-    process.exit();
+  // Write the name to stdout using template literals to include the input directly.
+  process.stdout.write(`Your name is: ${data}`);
+  // Exit the process after printing the name to handle the input as a single occurrence.
+  process.exit();
 });
 
-process.on('exit', () => {
-    console.log("This important software is now closing");
+// Listen for the end event on stdin, which is triggered when stdin is closed.
+process.stdin.on('end', () => {
+  // Output the closing message when the input stream is closed.
+  process.stdout.write('This important software is now closing\n');
 });
 
