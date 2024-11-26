@@ -1,10 +1,10 @@
+// Arrow function
+const displayMessage = (message) => console.log(message);
+
 /**
- * displayMessage prints a given message to the standard output.
- * @param {string} message - The message to be printed.
+ * Exports the displayMessage function.
+ * @module displayMessage
+ * @function
  */
-function displayMessage(message) {
-    console.log(message);
-}
-
+// Default module export.
 module.exports = displayMessage;
-
