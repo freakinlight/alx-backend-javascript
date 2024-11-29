@@ -32,7 +32,7 @@ function countStudents(path) {
 
         for (const [field, names] of Object.entries(studentsByField)) {
           report.push(
-            `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`
+            `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`,
           );
         }
 
@@ -44,7 +44,7 @@ function countStudents(path) {
 
 // Create the HTTP server
 const app = http.createServer((req, res) => {
-  const url = req.url;
+  const { url } = req;
 
   if (url === '/') {
     // Default route
@@ -78,4 +78,3 @@ app.listen(1245, () => {
 
 // Export the app
 module.exports = app;
-
